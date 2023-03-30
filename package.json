@@ -1,0 +1,15 @@
+{
+  "name": "feed-cmd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "UNLICENCED",
+  "scripts": {
+    "start": "node npm-scripts/index.js",
+    "git": "git add . && git commit -a -m $M"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.7",
+    "lodash": "^4.17.21",
+    "rss-to-json": "^2.1.1"
+  }
+}
