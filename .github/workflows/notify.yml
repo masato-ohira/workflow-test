@@ -1,0 +1,38 @@
+name: notify
+# いつ実行するか
+on: [workflow_dispatch]
+# on:
+#   push:
+#     branches: [master]
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      # セットアップ
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+      # キャッシュ
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      # インストール
+      - name: install command
+        run: npm ci
+
+      # 環境変数の設定
+      # npm-script実行
+      - name: run-app
+        env:
+          TZ: 'Asia/Tokyo'
+        run: npm start
