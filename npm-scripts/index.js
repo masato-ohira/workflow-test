@@ -1,7 +1,10 @@
 const getFeed = require('./feed')
+const slackHook = require('./slack')
 
 const main = async () => {
-  const res = await getFeed()
+  const article = await getFeed()
+  await slackHook(article)
+  // console.log(article)
 }
 
 main()

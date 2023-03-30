@@ -1,7 +1,6 @@
 const dayjs = require('dayjs')
 const { parse } = require('rss-to-json')
 const _ = require('lodash')
-// const slackHook = require('./slack')
 
 const getFeeds = async () => {
   try {
@@ -52,8 +51,6 @@ const action = async () => {
     let feeds = await getFeeds()
     let sample = _.sample(feeds)
     let output = [sample.title, sample.url].join('\n')
-    console.log(output)
-    // slackHook([output, `※候補 ${feeds.length} から上記を選択`].join('\n'))
     return output
   } catch (error) {
     return ''

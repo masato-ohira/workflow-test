@@ -8,7 +8,9 @@
     "git": "git add . && git commit -a -m $M"
   },
   "dependencies": {
+    "@slack/webhook": "^6.1.0",
     "dayjs": "^1.11.7",
+    "dotenv": "^16.0.3",
     "lodash": "^4.17.21",
     "rss-to-json": "^2.1.1"
   }
