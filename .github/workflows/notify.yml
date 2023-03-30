@@ -1,6 +1,8 @@
 name: notify
 # いつ実行するか
-on: [workflow_dispatch]
+on:
+  repository_dispatch:
+    types: [notify_dispatch]
 # on:
 #   push:
 #     branches: [master]
